@@ -55,7 +55,7 @@ public class RegisterServlet extends HttpServlet {
 
     } */else {
         System.out.println("登陆成功");
-      response.sendRedirect("http://liuh.vipgz2.idcfengye.com/servletWEB_war/zhan.html");//跳转展示页面
+      response.sendRedirect("/servletWEB_war/zhan.html");//跳转展示页面
       } 
     }
   }
