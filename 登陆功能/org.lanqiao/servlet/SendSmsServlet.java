@@ -20,8 +20,9 @@ public class SendSmsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	//短信平台相关参数
 	private String apiUrl = "https://sms_developer.zhenzikj.com";
-	private String appId = "103472";
-	private String appSecret = "5367191f-47e7-4307-aaa8-a65a81c6054e";
+	//这里请填写自己账户的信息
+	private String appId = "";
+	private String appSecret = "";
        
     public SendSmsServlet() {
         super();
