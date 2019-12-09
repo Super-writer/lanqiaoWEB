@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh-cn">
+<!--滑动分页的demo-->
+<head>
+    <meta http-equiv="Access-Control-Allow-Origin" content="http://yangt.vipgz2.idcfengye.com/ServletProject/FindProductsServlet">
+    <meta name="viewport" content="initial-scale=1, user-scalable=0, minimal-ui" charset="UTF-8">
+    <title>tab加载多个数据</title>
+    <link rel="stylesheet" href="css/dropload.css"><!--引入css样式包-->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="layui/css/layui.css">
+</head>
+<body>
+<!--轮播图片-->
+<div id = "test" class="test" align="center">
+    <div class="layui-carousel" id="test1" >
+        <div carousel-item>
+            <!--图片轮播-->
+            <<img src="img/HD1.jpg" width="100%">
+            <img src="img/HD2.jpg" width="100%">
+            <img src="img/HD3.jpg" width="100%">
+            <img src="img/HD4.jpg" width="100%">
+            <img src="img/HD5.jpg" width="100%">
+            <img src="img/HD6.jpg" width="100%">
+            <img src="img/HD7.jpg" width="100%">
+            <img src="img/HD8.jpg" width="100%">
+            <img src="img/HD9.jpg" width="100%">
+        </div>
+    </div>
+</div>
+<!--    导航栏-->
+    <ul class="layui-nav layui-bg-green" lay-filter="test">
+        <li class="layui-nav-item"><a href="my.html">个人中心</a></li>
+        <li class="layui-nav-item layui-this"><a href="tag.html">全部房屋</a></li>
+    <!-- layui-this默认下划线停留的位置 -->
+        <li class="layui-nav-item">
+            <a href="javascript:">地区</a>
+            <dl class="layui-nav-child">
+                <dd><a href="javascript:"><h3 value="重庆" onclick="click_id()">重庆市</h3></a></dd>
+                <dd><a href="javascript:" onclick="click_id()" id="id1">渝中区</a></dd>
+                <dd><a onclick="click_id()" id="九龙坡">九龙坡区</a></dd>
+                <dd><a href="javascript:">南岸区</a></dd>
+                <dd><a href="">大渡口区</a></dd>
+                <dd><a href="">沙坪坝区</a></dd>
+                <dd><a href="">江北区</a></dd>
+                <dd><a href="">北碚区</a></dd>
+                <dd><a href="">渝北区</a></dd>
+                <dd><a href="">巴南区</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item">
+            <a href="javascript:">房源类型</a>
+            <dl class="layui-nav-child">
+                <dd><a href="">1室2厅</a></dd>
+                <dd><a href="">2室1一厅</a></dd>
+                <dd><a href="">2室2一厅</a></dd>
+                <dd><a href="">3室1一厅</a></dd>
+                <dd><a href="">3室2一厅</a></dd>
+                <dd><a href="">4室1厅</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item">
+            <a href="javascript:">房源价格</a>
+            <dl class="layui-nav-child">
+                <dd><a href="">500000￥----800000￥</a></dd>
+                <dd><a href="">800000￥----1000000￥</a></dd>
+                <dd><a href="">1000000￥----1500000￥</a></dd>
+            </dl>
+        </li>
+    </ul>
+
+<!--    滑动分页的挂载点-->
+    <div class="content">
+        <div id="lists"></div>
+    </div>
+
+
+<!-- jQuery1.7以上 或者 Zepto 二选一，不要同时都引用 -->
+    <script src="js/Vue.js"></script>
+<script src="js/zepto.min.js"></script>
+<script src="js/dropload.min.js"></script>
+<script src="layui/layui.all.js"></script>
+<script src="js/housing.js"></script>
+
+
+<!--layui页面元素的依赖-->
+    <script>
+        layui.use('element', function(){
+            var element = layui.element;
+
+            //一些事件监听
+            element.on('tab(demo)', function(data){
+                console.log(data);
+            });
+        });
+    </script>
+
+<!--轮播需要的依赖-->
+<script>
+    layui.use('carousel', function(){
+        var carousel = layui.carousel;
+        //建造实例
+        carousel.render({
+            elem: '#test1'
+            ,width: '100%'//设置容器宽度
+            ,height:'100px'
+            // ,arrow: 'always' //始终显示箭头
+            //,anim: 'updown' //切换动画方式
+        });
+    });
+</script>
+</body>
+</html>
